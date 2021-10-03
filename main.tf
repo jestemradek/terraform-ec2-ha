@@ -164,21 +164,6 @@ resource "aws_security_group_rule" "allow_all_outbound" {
   cidr_blocks = local.all_ips
 }
 
-resource "aws_s3_bucket" "terraform_state" {
-  bucket = var.db_remote_state_bucket
-  versioning {
-    enabled = true
-  }
-
-  server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        sse_algorithm = "AES256"
-      }
-    }
-  }
-}
-
 data "terraform_remote_state" "db" {
   backend = "s3"
   config = {
