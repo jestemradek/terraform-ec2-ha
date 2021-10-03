@@ -1,12 +1,10 @@
 terraform {
   required_version = ">= 1.0.8"
-  /*
   backend "s3" {
     bucket = "terraform-db"
     key    = "terraform.tfstate"
     region = "us-west-1"
   }
-*/
 }
 
 provider "aws" {
@@ -165,7 +163,7 @@ resource "aws_security_group_rule" "allow_all_outbound" {
   protocol    = local.any_protocol
   cidr_blocks = local.all_ips
 }
-/*
+
 resource "aws_s3_bucket" "terraform_state" {
   bucket = var.db_remote_state_bucket
   versioning {
@@ -189,7 +187,7 @@ data "terraform_remote_state" "db" {
     region = "us-west-1"
   }
 }
-*/
+
 locals {
   http_port    = 80
   any_port     = 0
