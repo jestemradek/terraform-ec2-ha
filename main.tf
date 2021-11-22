@@ -1,7 +1,7 @@
 terraform {
   required_version = ">= 1.0.8"
   backend "s3" {
-    bucket = "terraform-db-jestemradek"
+    bucket = "terraform-db-jestemradek2"
     key    = "terraform.tfstate"
     region = "us-west-1"
   }
